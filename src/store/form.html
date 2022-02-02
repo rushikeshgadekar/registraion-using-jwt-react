@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      "
+    >
+      <form id="form">
+        <input type="text" placeholder="name" id="name" /> <br />
+        <input type="text" placeholder="password" id="password" /><br /><br />
+        <button onclick="print(event)">press</button>
+        <button onclick="store(event)">check storage</button>
+      </form>
+    </div>
+
+    <p
+      style="
+        color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      "
+      id="data"
+    ></p>
+
+    <script>
+      //   var form = document.getElementById("form");
+      //   form.addEventListener("submit", function (e) {
+      //     e.preventDefault();
+      //     var n = document.getElementById("name").value;
+      //     var p = document.getElementById("password").value;
+      //     console.log(n);
+      //     console.log(p);
+      //   });
+
+      function print(e) {
+        e.preventDefault();
+        var n = document.getElementById("name").value;
+        var p = document.getElementById("password").value;
+        localStorage.setItem("name", n);
+        localStorage.setItem("password", p);
+      }
+
+      function store(e) {
+        e.preventDefault();
+        var name = localStorage.getItem("name");
+        var password = localStorage.getItem("password");
+        document.getElementById("data").innerHTML =
+          "Stored Data:" + "Name:" + name + " Password: " + password;
+        console.log(name);
+        console.log(password);
+      }
+    </script>
+  </body>
+</html>
